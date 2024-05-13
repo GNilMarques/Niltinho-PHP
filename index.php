@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/stayle.css">
 </head>
 <body>
    
@@ -35,7 +36,7 @@ echo $y;
 
 ?>
 <h1>niltinho</h1>
-<h1>amigos do patins</h1>
+
 
     
 </body>
