@@ -8,36 +8,79 @@
 
 </head>
 <body>
-   
+<h1>Aula de hj PHP</h1>
+
 <?php
-function somar($nota1,$nota2,$nota3){
-    $total = $nota1+$nota2+$nota3;
-    return $total;
+/*$patins =  array("amigos","alunos","aulas","street","slalom","jump");
+//var_dump($patins);
+
+$patins = ["amigos","alunos","aulas","street","slalom","jump"];
+$patins;
+
+$patins =  array("amigos","alunos","aulas","street","slalom","jump");
+$patins [3] ="rua";
+//echo count($patins );
+
+
+
+$calendario2024= ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+$calendario2024[6] = "julho";
+
+foreach($calendario2024 as $mes){
+    echo "$mes <br>";
 }
 
-echo(somar(9,10,6));
-somar(8,7,10);
 
+for ($x =0; $x <= 3; $x++){
+    echo "$x <br>";
+}*
+for ($x = 1; $x <= 10; $x++){
+    $resultado = $x*1;
+    echo " 1 x $x = $resultado <br>";}
+echo "<br>";
+    for ($x = 1; $x <= 10; $x++){
+        $resultado = $x*2;
+        echo " 2 x $x = $resultado <br>";
+}
+echo "<br>";
+    for ($x = 1; $x <= 10; $x++){
+        $resultado = $x*3;
+        echo " 3 x $x = $resultado <br>";
+}
 
-$nome = "Olá Mundo!";
-echo "<h1>$nome</h1>";
-$x =5;
-$y =9;
-$a =20;
-$resultado =$x + $y + $a;
+$x=5;
+$a=4;
+$soma= $x + $a;
+$resultado = $soma *$x;
 echo $resultado;
-    ?>
-<p>viver não é facil não!</p><br>
-<p>viver não é facil não!</p><br>
-<p>viver não é facil não!</p><br>
 
-    <?php
-$y =10;
-echo $y;
+$val1=5;
+$val2=9;
+$val3=7;
+$media =($val1+$val2+$val3)/3;
+echo $media;
+
+$x=29;
+$resultado = $x *0.15;
+echo $resultado;
+
+$x=84;
+$resultado = $x *0.05;
+$resultado1 = $x *0.50;
+echo "o resultado de 5% e $resultado e o resultado de 50% e  $resultado1";
+
+$x=39;
+if ($x >0){
+   echo "valor positivo";
+}
+else if ($x <0){
+    echo "valor negativo";
+}
+else;*/
 
 ?>
-<h1>niltinho</h1>
 
+</body>
 
     <script src="js/script.js"></script>
 </body>
