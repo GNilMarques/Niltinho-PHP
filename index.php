@@ -31,6 +31,7 @@ foreach($calendario2024 as $mes){
 }
 
 
+
 for ($x =0; $x <= 3; $x++){
     echo "$x <br>";
 }*
@@ -76,9 +77,17 @@ if ($x >0){
 else if ($x <0){
     echo "valor negativo";
 }
-else;
 
-
+$notafinal =8;
+if ($notafinal >= 7){
+    echo "aprovado";
+} 
+elseif ($notafinal >= 5){
+    echo "prova final";
+}
+else{
+    echo "reprovado";
+}
 ?>
 
 </body>
