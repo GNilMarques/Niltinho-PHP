@@ -11,7 +11,7 @@
 <h1>Aula de hj PHP</h1>
 
 <?php
-$patins =  array("amigos","alunos","aulas","street","slalom","jump");
+/*$patins =  array("amigos","alunos","aulas","street","slalom","jump");
 var_dump($patins);
 
 $patins = ["amigos","alunos","aulas","street","slalom","jump"];
@@ -87,8 +87,16 @@ elseif ($notafinal >= 5){
 }
 else{
     echo "reprovado";
-}
+}*/
+
 ?>
+
+<form action="receber_post.php" method="POST">
+    <input type="text" name="campoNome" placeholder="digite seu nome">
+    <input type="text" name="campoIdade" placeholder="digite sua idade">
+    <button type="submit">enviar</button>
+</form>
+
 
 </body>
 

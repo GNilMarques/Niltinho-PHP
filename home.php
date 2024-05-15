@@ -6,25 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-<?php
-    if (isset($_POST['campoNome'])){
-        $nome = $_POST ['campoNome'];
-        $idade = $_POST ['campoIdade'];
-        echo "$nome e $idade";
+<h1>AULA PHP</h1>
+
+<form each method="">
+<input type="text" name="nome">
+<input type="text" name="senha">
+<button type="submit">enviar</button>
 
 
-    }
 
 
-?>
+
+
+</form>
+
     
 </body>
 </html>
-
-
-
-
-
-
-
-
