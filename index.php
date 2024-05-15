@@ -11,7 +11,7 @@
 <h1>Aula de hj PHP</h1>
 
 <?php
-/*$patins =  array("amigos","alunos","aulas","street","slalom","jump");
+$patins =  array("amigos","alunos","aulas","street","slalom","jump");
 //var_dump($patins);
 
 $patins = ["amigos","alunos","aulas","street","slalom","jump"];
@@ -76,7 +76,8 @@ if ($x >0){
 else if ($x <0){
     echo "valor negativo";
 }
-else;*/
+else;
+
 
 ?>
 
