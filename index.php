@@ -12,14 +12,14 @@
 
 <?php
 $patins =  array("amigos","alunos","aulas","street","slalom","jump");
-//var_dump($patins);
+var_dump($patins);
 
 $patins = ["amigos","alunos","aulas","street","slalom","jump"];
 $patins;
 
 $patins =  array("amigos","alunos","aulas","street","slalom","jump");
 $patins [3] ="rua";
-//echo count($patins );
+echo count($patins );
 
 
 
