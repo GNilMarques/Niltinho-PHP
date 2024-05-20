@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/stayle.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 </head>
 <body>
@@ -87,19 +89,144 @@ elseif ($notafinal >= 5){
 }
 else{
     echo "reprovado";
-}*/
+} */
+
+if($_SERVER ['REQUEST_METHOD'] == "POST")
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $confirmasenha = $_POST['confirmasenha'];
+
+    if(empty ($nome)){
+        $erronome = "Coloque seu nome";
+
+    }else {
+            if (!preg_match("/^[a-zA-Z-' ]*$/",$nome)) {
+                $erronome = "Coloque seu nome";
+              
+    } else { 
+        $erronome = "nenhum";
+     }
+    
+
+        }
+        if(empty ($email)){
+            $erroemail = "Coloque seu email";
+        }else {
+                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                    $erroemail = "Coloque seu email";
+                  
+        } else { 
+            $erroemail = "nenhum";
+         }
+            
+            }
+
+            if(empty ($senha)){
+                $errosenha = "Coloque sua senha";
+            }else {
+                    if (strlen ($senha) < 6)   {
+                        $errosenha = "Coloque";
+                    }  
+             else { 
+                $errosenha = "nenhum";
+             }
+            }
+
+            if(empty ($confirmasenha)){
+                $erroconfirmasenha = "Coloque sua senha";
+            }else {
+                    if ($confirmasenha != $senha)   {
+                        $erroconfirmasenha = "Coloque";
+                    }  
+             else { 
+                $erroconfirmasenha = "nenhum";
+             }
+            }
 
 ?>
-
+<br><br>
+<!--
 <form action="receber_post.php" method="POST">
     <input type="text" name="campoNome" placeholder="digite seu nome">
     <input type="text" name="campoIdade" placeholder="digite sua idade">
     <button type="submit">enviar</button>
+</form> <br><br>
+        -->
+<h1>Validação de Formulario</h1>
+
+
+<div>
+    <form method="post">
+    <label for="" class="">nome <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i></label>  <br>
+    <input type="text" class="form-control <?php if (isset($erronome)){if ($erronome != "nunhum"){echo "is-invalid";}}?>" name="nome"> <br>
+    <div class="invalid-feedback">
+
+    <?php
+    if (isset($erronome)){
+        if ($erronome != "nunhum"){
+            echo $erronome;
+        }
+    }
+
+    ?>
+    <br>
+      </div>
+    <label for="" class="">email <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i> </label> <br>
+    <input type="text" class="form-control <?php if (isset($erroemail)){ if ($erroemail != "nunhum"){ echo "is-invalid";}}?>" name="email"> <br>
+    <div class="invalid-feedback">
+        
+    <?php
+ if (isset($erroemail)){
+     if ($erroemail != "nunhum"){
+         echo $erroemail;
+     }
+ }
+ ?>
+
+
+
+
+
+
+      </div>
+    <label>senha <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i> </label> <br>
+    <input type="password" class="form-control <?php if (isset($errosenha)){ if ($errosenha != "nunhum"){echo "is-invalid";}}?>" name="senha"> <br>
+    <div class="invalid-feedback"> 
+    <?php
+ if (isset($errosenha)){
+     if ($errosenha != "nunhum"){
+         echo $errosenha;
+     }
+ }
+ ?>
+      </div>
+    <label for="" class="">confirma senha <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i></label> <br>
+    <input type="password" class="form-control <?php if (isset($erroconfirmasenha)){if ($erroconfirmasenha != "nunhum"){echo "is-invalid" ; }}?>" name="confirmasenha"> <br><br>
+    <div class="invalid-feedback">
+        
+    <?php
+ if (isset($erroconfirmasenha)){
+     if ($erroconfirmasenha != "nunhum"){
+         echo $erroconfirmasenha;
+     }
+ }
+ ?>
+      </div>
+    <button type="submit">enviar <i class="mdi mdi-send-check"></i> </button> <br>
+
+
 </form>
 
-
+</div>
 </body>
 
     <script src="js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script>
+        const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    </script>
 </body>
 </html>
