@@ -91,61 +91,62 @@ else{
     echo "reprovado";
 } */
 
-if($_SERVER ['REQUEST_METHOD'] == "POST")
+if($_SERVER ['REQUEST_METHOD'] == "POST"){
+
+
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmasenha = $_POST['confirmasenha'];
 
+//validaão do campo nome
     if(empty ($nome)){
         $erronome = "Coloque seu nome";
-
-    }else {
-            if (!preg_match("/^[a-zA-Z-' ]*$/",$nome)) {
-                $erronome = "Coloque seu nome";
-              
-    } else { 
-        $erronome = "nenhum";
-     }
-    
-
+    }else{
+        if (!preg_match("/^[a-zA-Z-' ]*$/",$nome)) {
+            $erronome = "nao pode conter numeros";
+        } else { 
+            $erronome = "nenhum";
         }
-        if(empty ($email)){
+    }
+
+//validaão do campo email
+    if(empty($email)){
+        $erroemail = "Coloque seu email";
+    }else{
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $erroemail = "Coloque seu email";
-        }else {
-                if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                    $erroemail = "Coloque seu email";
-                  
         } else { 
             $erroemail = "nenhum";
-         }
-            
-            }
+        }
+    }
 
-            if(empty ($senha)){
-                $errosenha = "Coloque sua senha";
-            }else {
-                    if (strlen ($senha) < 6)   {
-                        $errosenha = "Coloque";
-                    }  
-             else { 
-                $errosenha = "nenhum";
-             }
-            }
+//validaão do campo senha
+    if(empty($senha)){
+        $errosenha = "Coloque sua senha";
+    }else{
+        if (strlen($senha) < 6) {
+            $errosenha = "Coloque";
+        } else { 
+            $errosenha = "nenhum";
+        }
+    }
+//validaão do campo confirma senha
+    if(empty ($confirmasenha)){
+        $erroconfirmasenha = "Coloque sua senha";
+    }else {
+        if ($confirmasenha != $senha) {
+            $erroconfirmasenha = "Coloque";
+        } else { 
+             $erroconfirmasenha = "nenhum";
+        }
+    }
 
-            if(empty ($confirmasenha)){
-                $erroconfirmasenha = "Coloque sua senha";
-            }else {
-                    if ($confirmasenha != $senha)   {
-                        $erroconfirmasenha = "Coloque";
-                    }  
-             else { 
-                $erroconfirmasenha = "nenhum";
-             }
-            }
+}
 
-?>
+    ?>
+
 <br><br>
 <!--
 <form action="receber_post.php" method="POST">
@@ -154,73 +155,70 @@ if($_SERVER ['REQUEST_METHOD'] == "POST")
     <button type="submit">enviar</button>
 </form> <br><br>
         -->
-<h1>Validação de Formulario</h1>
 
+<h1>Validação de Formulario</h1>
 
 <div>
     <form method="post">
-    <label for="" class="">nome <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i></label>  <br>
-    <input type="text" class="form-control <?php if (isset($erronome)){if ($erronome != "nunhum"){echo "is-invalid";}}?>" name="nome"> <br>
-    <div class="invalid-feedback">
 
-    <?php
-    if (isset($erronome)){
-        if ($erronome != "nunhum"){
-            echo $erronome;
-        }
-    }
+    <!-- campo nome do form  -->
+        <label for="" class="">nome <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i></label>  <br>
+        <input type="text" class="form-control <?php if (isset($erronome)){if ($erronome != "nenhum"){echo "is-invalid";}}?>" name="nome"> <br>
+        <div class="invalid-feedback">
+            <?php
+                if (isset($erronome)){
+                    if ($erronome != "nenhum"){
+                        echo $erronome;
+                }
+                }       
+            ?>
+        </div>
 
-    ?>
-    <br>
-      </div>
-    <label for="" class="">email <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i> </label> <br>
-    <input type="text" class="form-control <?php if (isset($erroemail)){ if ($erroemail != "nunhum"){ echo "is-invalid";}}?>" name="email"> <br>
-    <div class="invalid-feedback">
-        
-    <?php
- if (isset($erroemail)){
-     if ($erroemail != "nunhum"){
-         echo $erroemail;
-     }
- }
- ?>
+    <!-- campo email do form  -->
+        <label for="" class="">email <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i> </label> 
+        <input type="text" class="form-control <?php if (isset($erroemail)){ if ($erroemail != "nenhum"){ echo "is-invalid";}}?>" name="email"> <br>
+        <div class="invalid-feedback">
+            <?php
+                if (isset($erroemail)){
+                    if ($erroemail != "nenhum"){
+                        echo $erroemail;
+                }
+                }
+            ?>
+        </div>
 
+    <!-- campo senha do form  -->
+        <label>senha <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i> </label> 
+        <input type="password" class="form-control <?php if (isset($errosenha)){ if ($errosenha != "nenhum"){echo "is-invalid";}}?>" name="senha"> 
+        <div class="invalid-feedback"> 
+            <?php
+                if (isset($errosenha)){
+                    if ($errosenha != "nenhum"){
+                     echo $errosenha;
+                }
+                }
+            ?>
+        </div> <br>
 
-
-
-
-
-      </div>
-    <label>senha <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i> </label> <br>
-    <input type="password" class="form-control <?php if (isset($errosenha)){ if ($errosenha != "nunhum"){echo "is-invalid";}}?>" name="senha"> <br>
-    <div class="invalid-feedback"> 
-    <?php
- if (isset($errosenha)){
-     if ($errosenha != "nunhum"){
-         echo $errosenha;
-     }
- }
- ?>
-      </div>
-    <label for="" class="">confirma senha <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i></label> <br>
-    <input type="password" class="form-control <?php if (isset($erroconfirmasenha)){if ($erroconfirmasenha != "nunhum"){echo "is-invalid" ; }}?>" name="confirmasenha"> <br><br>
-    <div class="invalid-feedback">
-        
-    <?php
- if (isset($erroconfirmasenha)){
-     if ($erroconfirmasenha != "nunhum"){
-         echo $erroconfirmasenha;
-     }
- }
- ?>
-      </div>
+    <!-- campo confirma senha do form  -->
+        <label for="" class="">confirma senha <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i></label> 
+        <input type="password" class="form-control <?php if (isset($erroconfirmasenha)){if ($erroconfirmasenha != "nenhum"){echo "is-invalid" ; }}?>" name="confirmasenha"> 
+        <div class="invalid-feedback">
+            <?php
+                if (isset($erroconfirmasenha)){
+                    if ($erroconfirmasenha != "nenhum"){
+                     echo $erroconfirmasenha;
+                }
+                }
+            ?>
+        </div>
+<br>
     <button type="submit">enviar <i class="mdi mdi-send-check"></i> </button> <br>
 
-
-</form>
-
+    </form>
 </div>
 </body>
+
 
     <script src="js/script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
