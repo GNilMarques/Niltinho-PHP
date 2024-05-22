@@ -34,7 +34,7 @@
     if(file_exists($caminhoArquivo) && is_file($caminhoArquivo)){
         $abrirArquivo = fopen($caminhoArquivo,'r');
         while (!feof($abrirArquivo)){
-            echo fgets($abrirArquivo)."<br>";
+            echo fgets($abrirArquivo)."<br>"
         }
     }
 ?>
