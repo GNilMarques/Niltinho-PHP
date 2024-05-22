@@ -132,9 +132,10 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
             $errosenha = "nenhum";
         }
     }
+    
 //validaão do campo confirma senha
     if(empty ($confirmasenha)){
-        $erroconfirmasenha = "Coloque sua senha";
+        $erroconfirmasenha = "Confirme sua senha";
     }else {
         if ($confirmasenha != $senha) {
             $erroconfirmasenha = "Coloque";

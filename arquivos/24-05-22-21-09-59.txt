@@ -1,0 +1,4 @@
+texto teste criado utilizando em PHP
+aula PHP 22/05/24
+outro aquivo de texto
+criando mais um texto
