@@ -13,7 +13,7 @@
         mkdir($pasta,0755,true);
     }else {
         echo "pasta patins existente";
-    } */
+    } 
     
 //ARQUIVOS DE PASTAS
     $pasta = "arquivos/";
@@ -31,7 +31,7 @@
     fwrite($arquivo,'criando mais um texto'.PHP_EOL);
     fclose($arquivo);
     echo "pasta criada";
-/*
+
     $caminhoArquivo = $pasta.$nomeArquivo;
     if(file_exists($caminhoArquivo) && is_file($caminhoArquivo)){
         $abrirArquivo = fopen($caminhoArquivo,'r');
@@ -39,7 +39,7 @@
             echo fgets($abrirArquivo)."<br>";
          }  
     }
-*/
+
 //apagar pastas
    
     if(is_dir($pasta)){
@@ -52,6 +52,29 @@
         }
         rmdir($pasta);
     }
-         
+    
+
+//data e hora
+        $data = date("Y-m-d");
+        $hora = date("H:i:sa");
+        echo $data.$hora;
+    */
+
+        $hoje = "2024-05-23";
+        $vencimento = "2024-05-20";
+        $diferenca = strtotime($vencimento) - strtotime($hoje);
+        $AteVencimento = floor($diferenca / (60*60*24));
+        if ($AteVencimento < 0 ){
+            $resultado = $AteVencimento *(-1);
+            echo"seu boleto venceu a $resultado dias";
+          
+        }
+        if ($AteVencimento > 0 ){
+            echo "boleto dentro do prazo";
+        }
+
+       
+       
+
     
 ?>
