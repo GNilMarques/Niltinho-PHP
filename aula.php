@@ -39,9 +39,9 @@
             echo fgets($abrirArquivo)."<br>";
          }  
     }
-
+*/
 //apagar pastas
-    */
+   
     if(is_dir($pasta)){
         foreach(scandir($pasta) as $lixo){
             $caminho = $pasta.$lixo;
