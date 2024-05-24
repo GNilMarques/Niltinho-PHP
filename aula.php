@@ -41,7 +41,6 @@
     }
 
 //apagar pastas
-   
     if(is_dir($pasta)){
         foreach(scandir($pasta) as $lixo){
             $caminho = $pasta.$lixo;
@@ -53,12 +52,11 @@
         rmdir($pasta);
     }
     
-
 //data e hora
         $data = date("Y-m-d");
         $hora = date("H:i:sa");
         echo $data.$hora;
-    */
+    
 
         $hoje = "2024-05-23";
         $vencimento = "2024-05-20";
@@ -67,12 +65,41 @@
         if ($AteVencimento < 0 ){
             $resultado = $AteVencimento *(-1);
             echo"seu boleto venceu a $resultado dias";
-          
-        }
+            }
+
         if ($AteVencimento > 0 ){
             echo "boleto dentro do prazo";
-        }
+        }*/
 
+    // crinado objeto
+        class casa{
+            public $linda;
+            public $quarto;
+            public $cozinha;
+            public $banheiro;
+
+            public function __construct($linda,$quarto,$cozinha,$banheiro){
+                $this->linda = $linda;
+                $this->quarto = $quarto;
+                $this->cozinha = $cozinha;
+                $this->banheiro = $banheiro;     
+            }
+
+            public function mensagem (){
+                echo "Minha casa é $this->linda é a $this->cozinha branca";
+            }
+        }
+        
+        
+        
+         $casa1 = new casa("linda","quarto","cozinha","banheiro");
+         echo $casa1->mensagem()."<br>";
+         echo $casa1->linda;
+
+        
+       
+
+        
        
        
 

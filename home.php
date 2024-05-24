@@ -4,23 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-<h1>AULA PHP</h1>
-
-<form each method="">
-<input type="text" name="nome">
-<input type="text" name="senha">
-<button type="submit">enviar</button>
-
-
-
-
-
-
-
-</form>
-
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
     
-</body>
+</head>
+    <body>
+        <?php include("menu.php");?>
+
+        <?php include("baner.php");?>
+
+        <script src="JS/bootstrap.bundle.min.js"></script>
+   </body>
 </html>
