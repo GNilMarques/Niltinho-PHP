@@ -95,10 +95,15 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
 
 
 
+
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmasenha = $_POST['confirmasenha'];
+
+    require('conexao.php');
+    $sql=$pdo-> prepare("INSERT INTO banco VALUES (?,?',?,?);");
+    $sql -> execute (array ($nome,$email,$senha,$confirmasenha));
 
 //validaão do campo nome
     if(empty ($nome)){
