@@ -3,7 +3,7 @@
  $sevidor="localhost";
  $usuario="root";
  $senha="";
- $banco="farma";
+ $banco="banco";
 
 
  

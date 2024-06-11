@@ -94,16 +94,15 @@ else{
 if($_SERVER ['REQUEST_METHOD'] == "POST"){
 
 
-
-
     $nome = $_POST['nome'];
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmasenha = $_POST['confirmasenha'];
+    
 
     require('conexao.php');
-    $sql=$pdo-> prepare("INSERT INTO banco VALUES (?,?',?,?);");
-    $sql -> execute (array ($nome,$email,$senha,$confirmasenha));
+    $sql = $pdo-> prepare("INSERT INTO banco VALUES (null,?,?,?,?)");
+    $sql -> execute(array($nome,$email,$senha,$confirmasenha));
 
 //validaão do campo nome
     if(empty ($nome)){
@@ -220,6 +219,11 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
         </div>
 <br>
     <button type="submit">enviar <i class="mdi mdi-send-check"></i> </button> <br>
+
+    <?php
+    
+
+    ?>
 
     </form>
 </div>
