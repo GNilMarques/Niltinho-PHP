@@ -13,6 +13,8 @@
 <h1>Aula de hj PHP</h1>
 
 <?php
+ require('conexao.php');
+
 /*$patins =  array("amigos","alunos","aulas","street","slalom","jump");
 var_dump($patins);
 
@@ -91,6 +93,7 @@ else{
     echo "reprovado";
 } */
 
+//BANCO DE DADOS PHP//
 if($_SERVER ['REQUEST_METHOD'] == "POST"){
 
 
@@ -98,9 +101,11 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     $confirmasenha = $_POST['confirmasenha'];
+
+  
     
 
-    require('conexao.php');
+   
     $sql = $pdo-> prepare("INSERT INTO banco VALUES (null,?,?,?,?)");
     $sql -> execute(array($nome,$email,$senha,$confirmasenha));
 
@@ -161,6 +166,8 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
 </form> <br><br>
         -->
 
+
+
 <h1>Validação de Formulario</h1>
 
 <div>
@@ -204,7 +211,7 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
                 }
             ?>
         </div> <br>
-
+                
     <!-- campo confirma senha do form  -->
         <label for="" class="">confirma senha <i class="mdi mdi-information-outline" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Campo Obrigatorio" ></i></label> 
         <input type="password" class="form-control <?php if (isset($erroconfirmasenha)){if ($erroconfirmasenha != "nenhum"){echo "is-invalid" ; }}?>" name="confirmasenha"> 
@@ -219,14 +226,59 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
         </div>
 <br>
     <button type="submit">enviar <i class="mdi mdi-send-check"></i> </button> <br>
-
-    <?php
-    
-
-    ?>
-
     </form>
 </div>
+
+
+<?php
+
+
+//BANCO DE DADOS PHP//
+
+$sql = $pdo->prepare("SELECT * FROM banco");
+$sql -> execute();
+$dados = $sql-> fetchAll();
+
+
+
+
+if(count($dados)>0){
+       echo '<table class="table">
+ <thead>
+   <tr>
+     <th scope="col">ID</th>
+     <th scope="col">Nome</th>
+     <th scope="col">email</th>
+     <th scope="col">Senha</th>
+     <th scope="col">Confirmar Senha</th>
+    
+   </tr>
+ </thead>';
+             
+    foreach($dados as $chave){
+        echo '<tbody>
+            <tr>
+             <th scope="row">'.$chave["id_banco"].'</th>
+             <td>'.$chave["nome"].'</td>
+             <td>'.$chave["email"].'</td>
+             <td>'.$chave["senha"].'</td>
+             <td>'.$chave["confirmasenha"].'</td>
+             </tr>
+            </tbody>';
+     } echo"</table>"; 
+}else {
+    echo "Usuários Fantasma!";
+}
+
+ ?>
+ 
+ 
+
+
+
+
+
+
 </body>
 
 
