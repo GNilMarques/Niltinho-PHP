@@ -99,8 +99,8 @@ if($_SERVER ['REQUEST_METHOD'] == "POST"){
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $confirmasenha = $_POST['confirmasenha'];
+    $senha = md5($_POST['senha']);
+    $confirmasenha = md5($_POST['confirmasenha']);
 
   
     
